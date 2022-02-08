@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import { JourneyDetail } from '../JourneyDetail';
 import { JourneyPicker } from '../JourneyPicker';
+import { SeatPicker } from '../SeatPicker';
 
 export const Home = () => {
   const [journey, setJourney] = useState(null)
@@ -10,5 +11,6 @@ export const Home = () => {
   <main>
     <JourneyPicker onJourneyChange={(data) => setJourney(data)}/>
     {journey && <JourneyDetail journey={journey}/>}
+    <SeatPicker/>
   </main>
 )};
