@@ -6,8 +6,7 @@ import { SeatPicker } from '../SeatPicker';
 
 export const Home = () => {
   const [journey, setJourney] = useState(null)
-console.log(journey)
-
+  
   return (
   <main>
     <JourneyPicker onJourneyChange={(data) => setJourney(data)}/>

@@ -1,30 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SeatRow } from '../SeatRow';
 import './style.css';
 
-const testRow = [
-  {
-    "number": 33,
-    "isOccupied": false
-  },
-  {
-    "number": 29,
-    "isOccupied": true
-  },
-  {
-    "number": 25,
-    "isOccupied": false
-  },
-];
+export const SeatPicker = ({ seats, journeyId }) => {
+  const [selectedSeatNumber, setSelectedSeatNumber] = useState(null)
 
-export const SeatPicker = ({seats, journeyId}) => {
+  const handleSeatSelect = (number) => {
+    setSelectedSeatNumber(number)
+  };
+
   return (
-    <div class="seat-picker container">
+    <div className="seat-picker container">
       <h2>Vyberte sedadlo</h2>
-      <div class="seats">
-        {seats.map((row, index) => <SeatRow row={row} key={index}/>)}
+      <div className="seats">
+        {seats.map((row, index) => (
+          <SeatRow row={row} onSeatSelected={handleSeatSelect} selectedSeatNumber={selectedSeatNumber} key={index} />
+        ))}
       </div>
-      <button class="btn" type="button">
+      <button className="btn" type="button">
         Rezervovat
       </button>
     </div>
