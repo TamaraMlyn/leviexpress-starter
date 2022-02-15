@@ -10,6 +10,7 @@ export const SeatPicker = ({ seats, journeyId }) => {
     setSelectedSeatNumber(number);
   };
 
+
  const navigate = useNavigate();
 
   const handleBuy = () => {
@@ -20,6 +21,10 @@ export const SeatPicker = ({ seats, journeyId }) => {
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          seat: selectedSeatNumber,
+          journeyId: journeyId,
+        })
       },
     )
       .then((resp) => resp.json())
